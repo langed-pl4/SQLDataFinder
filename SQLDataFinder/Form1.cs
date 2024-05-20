@@ -38,9 +38,9 @@ namespace SQLDataFinder
             {
                 con.Open();
                 using (SqlCommand cmd = new SqlCommand("SELECT name from sys.databases", con))
-                    using (IDataReader dr = cmd.ExecuteReader())
-                        while (dr.Read())
-                            list.Add(dr[0].ToString());
+                using (IDataReader dr = cmd.ExecuteReader())
+                    while (dr.Read())
+                        list.Add(dr[0].ToString());
 
                 con.Close();
             }
@@ -50,6 +50,7 @@ namespace SQLDataFinder
 
         private void txtDB_DropDown(object sender, EventArgs e)
         {
+            txtDB.Items.Clear();
             List<string> dblist = GetDatabaseList();
             foreach (string db in dblist)
                 txtDB.Items.Add(db);
@@ -57,47 +58,74 @@ namespace SQLDataFinder
 
         private void btnPesquisar_Click(object sender, EventArgs e)
         {
-            using (SqlConnection con = new SqlConnection(GetConnectionString()))
+            if (txtDB.Text.Length > 0)
             {
-                List<string> tables = new List<string>();
-
-                con.Open();
-                using (SqlCommand cmd = new SqlCommand("SELECT TABLE_SCHEMA, TABLE_NAME FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_CATALOG='"+txtDB.Text+"'", con))
-                {                    
-                    using (IDataReader dr = cmd.ExecuteReader())
-                        while (dr.Read())
-                            tables.Add("[" + (string)dr["TABLE_SCHEMA"] + "].[" + (string)dr["TABLE_NAME"] + "]");
-                }
-
-                toolStripProgressBar1.Minimum = 0;
-                toolStripProgressBar1.Value = 0;
-                toolStripProgressBar1.Maximum = tables.Count;
-                foreach (string table in tables)
+                using (SqlConnection con = new SqlConnection(GetConnectionString()))
                 {
-                    toolStripProgressBar1.Value++;
-                    lblTable.Text = table;
-                    statusStrip1.Refresh();
-                    using (SqlCommand cmd = new SqlCommand("SELECT * FROM " + table, con))
+                    List<string> tables = new List<string>();
+
+                    con.Open();
+                    using (SqlCommand cmd = new SqlCommand("SELECT TABLE_SCHEMA, TABLE_NAME FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_CATALOG='" + txtDB.Text + "'", con))
                     {
                         using (IDataReader dr = cmd.ExecuteReader())
                             while (dr.Read())
-                                try
-                                {
-                                    for (int i = 0; i < dr.FieldCount; i++)
-                                        if (dr.GetValue(i).ToString().Contains(textBox1.Text))
-                                        {
-                                            ListViewItem lit = listView1.Items.Add(table);
-                                            lit.SubItems.Add(dr.GetName(i).ToLower());
-                                            lit.SubItems.Add(dr.GetValue(i).ToString());
-                                        }
-                                }
-                                catch { }
+                                tables.Add("[" + (string)dr["TABLE_SCHEMA"] + "].[" + (string)dr["TABLE_NAME"] + "]");
                     }
+
+                    toolStripProgressBar1.Minimum = 0;
+                    toolStripProgressBar1.Value = 0;
+                    toolStripProgressBar1.Maximum = tables.Count;
+                    foreach (string table in tables)
+                    {
+                        toolStripProgressBar1.Value++;
+                        lblTable.Text = table;
+                        statusStrip1.Refresh();
+                        using (SqlCommand cmd = new SqlCommand("SELECT * FROM " + table, con))
+                        {
+                            using (IDataReader dr = cmd.ExecuteReader())
+                                while (dr.Read())
+                                    try
+                                    {
+                                        for (int i = 0; i < dr.FieldCount; i++)
+                                            if (dr.GetValue(i).ToString().Contains(textBox1.Text))
+                                            {
+                                                ListViewItem lit = listView1.Items.Add(table);
+                                                lit.SubItems.Add(dr.GetName(i).ToLower());
+                                                lit.SubItems.Add(dr.GetValue(i).ToString());
+                                            }
+                                    }
+                                    catch { }
+                        }
+                    }
+
+
+
+                    con.Close();
                 }
+            }
+            else
+                MessageBox.Show("Informar o nome do Banco de dados!");
+        }
 
+        private void tsSelect_Click(object sender, EventArgs e)
+        {
+            if (listView1.SelectedItems.Count > 0)
+            {
+                string sql = "SELECT TOP (1000) * FROM " + listView1.SelectedItems[0].SubItems[0].Text;
 
+                Clipboard.SetText(sql);
+            }
+        }
 
-                con.Close();
+        private void uPDATEToClipboardToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (listView1.SelectedItems.Count > 0)
+            {
+                string sql = "UPDATE FROM " + listView1.SelectedItems[0].SubItems[0].Text + " " +
+                             "SET X=X " +
+                             "WHERE " + listView1.SelectedItems[0].SubItems[1].Text + " = '" + listView1.SelectedItems[0].SubItems[2].Text + "'";
+
+                Clipboard.SetText(sql);
             }
         }
     }

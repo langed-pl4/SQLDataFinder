@@ -28,212 +28,232 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
+            ListViewItem listViewItem1 = new ListViewItem(new string[] { "tabela", "coluna", "valor" }, -1);
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-            this.label1 = new System.Windows.Forms.Label();
-            this.txtHost = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.txtUser = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.txtPass = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.txtDB = new System.Windows.Forms.ComboBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.btnPesquisar = new System.Windows.Forms.Button();
-            this.listView1 = new System.Windows.Forms.ListView();
-            this.columnHeader1 = new System.Windows.Forms.ColumnHeader();
-            this.columnHeader2 = new System.Windows.Forms.ColumnHeader();
-            this.columnHeader3 = new System.Windows.Forms.ColumnHeader();
-            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
-            this.toolStripProgressBar1 = new System.Windows.Forms.ToolStripProgressBar();
-            this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
-            this.lblTable = new System.Windows.Forms.ToolStripStatusLabel();
-            this.statusStrip1.SuspendLayout();
-            this.SuspendLayout();
+            label1 = new Label();
+            txtHost = new TextBox();
+            label2 = new Label();
+            txtUser = new TextBox();
+            label3 = new Label();
+            txtPass = new TextBox();
+            label4 = new Label();
+            txtDB = new ComboBox();
+            textBox1 = new TextBox();
+            label5 = new Label();
+            btnPesquisar = new Button();
+            listView1 = new ListView();
+            columnHeader1 = new ColumnHeader();
+            columnHeader2 = new ColumnHeader();
+            columnHeader3 = new ColumnHeader();
+            context1 = new ContextMenuStrip(components);
+            tsSelect = new ToolStripMenuItem();
+            statusStrip1 = new StatusStrip();
+            toolStripProgressBar1 = new ToolStripProgressBar();
+            toolStripStatusLabel1 = new ToolStripStatusLabel();
+            lblTable = new ToolStripStatusLabel();
+            uPDATEToClipboardToolStripMenuItem = new ToolStripMenuItem();
+            context1.SuspendLayout();
+            statusStrip1.SuspendLayout();
+            SuspendLayout();
             // 
             // label1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(26, 23);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(95, 15);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Hostname ou IP:";
+            label1.AutoSize = true;
+            label1.Location = new Point(26, 23);
+            label1.Name = "label1";
+            label1.Size = new Size(95, 15);
+            label1.TabIndex = 0;
+            label1.Text = "Hostname ou IP:";
             // 
             // txtHost
             // 
-            this.txtHost.Location = new System.Drawing.Point(126, 23);
-            this.txtHost.Name = "txtHost";
-            this.txtHost.Size = new System.Drawing.Size(193, 23);
-            this.txtHost.TabIndex = 1;
-            this.txtHost.Text = "dalvm01";
+            txtHost.Location = new Point(126, 23);
+            txtHost.Name = "txtHost";
+            txtHost.Size = new Size(193, 23);
+            txtHost.TabIndex = 1;
+            txtHost.Text = "DALVM21";
             // 
             // label2
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(24, 110);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(96, 15);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "Nome do Banco:";
+            label2.AutoSize = true;
+            label2.Location = new Point(24, 110);
+            label2.Name = "label2";
+            label2.Size = new Size(96, 15);
+            label2.TabIndex = 2;
+            label2.Text = "Nome do Banco:";
             // 
             // txtUser
             // 
-            this.txtUser.Location = new System.Drawing.Point(126, 52);
-            this.txtUser.Name = "txtUser";
-            this.txtUser.Size = new System.Drawing.Size(193, 23);
-            this.txtUser.TabIndex = 5;
-            this.txtUser.Text = "infodba";
+            txtUser.Location = new Point(126, 52);
+            txtUser.Name = "txtUser";
+            txtUser.Size = new Size(193, 23);
+            txtUser.TabIndex = 5;
+            txtUser.Text = "infodba";
             // 
             // label3
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(70, 52);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(50, 15);
-            this.label3.TabIndex = 4;
-            this.label3.Text = "Usuário:";
+            label3.AutoSize = true;
+            label3.Location = new Point(70, 52);
+            label3.Name = "label3";
+            label3.Size = new Size(50, 15);
+            label3.TabIndex = 4;
+            label3.Text = "Usuário:";
             // 
             // txtPass
             // 
-            this.txtPass.Location = new System.Drawing.Point(126, 81);
-            this.txtPass.Name = "txtPass";
-            this.txtPass.PasswordChar = '*';
-            this.txtPass.Size = new System.Drawing.Size(193, 23);
-            this.txtPass.TabIndex = 7;
-            this.txtPass.Text = "infodba";
+            txtPass.Location = new Point(126, 81);
+            txtPass.Name = "txtPass";
+            txtPass.PasswordChar = '*';
+            txtPass.Size = new Size(193, 23);
+            txtPass.TabIndex = 7;
+            txtPass.Text = "infodba";
             // 
             // label4
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(78, 81);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(42, 15);
-            this.label4.TabIndex = 6;
-            this.label4.Text = "Senha:";
+            label4.AutoSize = true;
+            label4.Location = new Point(78, 81);
+            label4.Name = "label4";
+            label4.Size = new Size(42, 15);
+            label4.TabIndex = 6;
+            label4.Text = "Senha:";
             // 
             // txtDB
             // 
-            this.txtDB.FormattingEnabled = true;
-            this.txtDB.Location = new System.Drawing.Point(126, 110);
-            this.txtDB.Name = "txtDB";
-            this.txtDB.Size = new System.Drawing.Size(193, 23);
-            this.txtDB.TabIndex = 8;
-            this.txtDB.DropDown += new System.EventHandler(this.txtDB_DropDown);
+            txtDB.FormattingEnabled = true;
+            txtDB.Location = new Point(126, 110);
+            txtDB.Name = "txtDB";
+            txtDB.Size = new Size(193, 23);
+            txtDB.TabIndex = 8;
+            txtDB.DropDown += txtDB_DropDown;
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(126, 139);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(193, 23);
-            this.textBox1.TabIndex = 10;
-            this.textBox1.Text = "TcRAExcel";
+            textBox1.Location = new Point(126, 139);
+            textBox1.Name = "textBox1";
+            textBox1.Size = new Size(193, 23);
+            textBox1.TabIndex = 10;
+            textBox1.Text = "TcRAExcel";
             // 
             // label5
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(39, 139);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(81, 15);
-            this.label5.TabIndex = 9;
-            this.label5.Text = "Pesquisar Por:";
+            label5.AutoSize = true;
+            label5.Location = new Point(39, 139);
+            label5.Name = "label5";
+            label5.Size = new Size(81, 15);
+            label5.TabIndex = 9;
+            label5.Text = "Pesquisar Por:";
             // 
             // btnPesquisar
             // 
-            this.btnPesquisar.Location = new System.Drawing.Point(244, 168);
-            this.btnPesquisar.Name = "btnPesquisar";
-            this.btnPesquisar.Size = new System.Drawing.Size(75, 23);
-            this.btnPesquisar.TabIndex = 11;
-            this.btnPesquisar.Text = "Pesquisar";
-            this.btnPesquisar.UseVisualStyleBackColor = true;
-            this.btnPesquisar.Click += new System.EventHandler(this.btnPesquisar_Click);
+            btnPesquisar.Location = new Point(244, 168);
+            btnPesquisar.Name = "btnPesquisar";
+            btnPesquisar.Size = new Size(75, 23);
+            btnPesquisar.TabIndex = 11;
+            btnPesquisar.Text = "Pesquisar";
+            btnPesquisar.UseVisualStyleBackColor = true;
+            btnPesquisar.Click += btnPesquisar_Click;
             // 
             // listView1
             // 
-            this.listView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.columnHeader1,
-            this.columnHeader2,
-            this.columnHeader3});
-            this.listView1.Location = new System.Drawing.Point(325, 23);
-            this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(517, 188);
-            this.listView1.TabIndex = 12;
-            this.listView1.UseCompatibleStateImageBehavior = false;
-            this.listView1.View = System.Windows.Forms.View.Details;
+            listView1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            listView1.Columns.AddRange(new ColumnHeader[] { columnHeader1, columnHeader2, columnHeader3 });
+            listView1.ContextMenuStrip = context1;
+            listView1.Items.AddRange(new ListViewItem[] { listViewItem1 });
+            listView1.Location = new Point(325, 23);
+            listView1.Name = "listView1";
+            listView1.Size = new Size(517, 188);
+            listView1.TabIndex = 12;
+            listView1.UseCompatibleStateImageBehavior = false;
+            listView1.View = View.Details;
             // 
             // columnHeader1
             // 
-            this.columnHeader1.Text = "Tabela";
-            this.columnHeader1.Width = 150;
+            columnHeader1.Text = "Tabela";
+            columnHeader1.Width = 150;
             // 
             // columnHeader2
             // 
-            this.columnHeader2.Text = "Coluna";
-            this.columnHeader2.Width = 150;
+            columnHeader2.Text = "Coluna";
+            columnHeader2.Width = 150;
             // 
             // columnHeader3
             // 
-            this.columnHeader3.Text = "Valor";
-            this.columnHeader3.Width = 150;
+            columnHeader3.Text = "Valor";
+            columnHeader3.Width = 150;
+            // 
+            // context1
+            // 
+            context1.Items.AddRange(new ToolStripItem[] { tsSelect, uPDATEToClipboardToolStripMenuItem });
+            context1.Name = "cmdSelectToClip";
+            context1.Size = new Size(186, 70);
+            // 
+            // tsSelect
+            // 
+            tsSelect.Name = "tsSelect";
+            tsSelect.Size = new Size(185, 22);
+            tsSelect.Text = "&SELECT to Clipboard";
+            tsSelect.Click += tsSelect_Click;
             // 
             // statusStrip1
             // 
-            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripProgressBar1,
-            this.toolStripStatusLabel1,
-            this.lblTable});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 231);
-            this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(850, 22);
-            this.statusStrip1.TabIndex = 14;
-            this.statusStrip1.Text = "statusStrip1";
+            statusStrip1.Items.AddRange(new ToolStripItem[] { toolStripProgressBar1, toolStripStatusLabel1, lblTable });
+            statusStrip1.Location = new Point(0, 231);
+            statusStrip1.Name = "statusStrip1";
+            statusStrip1.Size = new Size(850, 22);
+            statusStrip1.TabIndex = 14;
+            statusStrip1.Text = "statusStrip1";
             // 
             // toolStripProgressBar1
             // 
-            this.toolStripProgressBar1.Name = "toolStripProgressBar1";
-            this.toolStripProgressBar1.Size = new System.Drawing.Size(100, 16);
+            toolStripProgressBar1.Name = "toolStripProgressBar1";
+            toolStripProgressBar1.Size = new Size(100, 16);
             // 
             // toolStripStatusLabel1
             // 
-            this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
-            this.toolStripStatusLabel1.Size = new System.Drawing.Size(89, 17);
-            this.toolStripStatusLabel1.Text = "Verificando em:";
+            toolStripStatusLabel1.Name = "toolStripStatusLabel1";
+            toolStripStatusLabel1.Size = new Size(89, 17);
+            toolStripStatusLabel1.Text = "Verificando em:";
             // 
             // lblTable
             // 
-            this.lblTable.Name = "lblTable";
-            this.lblTable.Size = new System.Drawing.Size(16, 17);
-            this.lblTable.Text = "...";
+            lblTable.Name = "lblTable";
+            lblTable.Size = new Size(16, 17);
+            lblTable.Text = "...";
+            // 
+            // uPDATEToClipboardToolStripMenuItem
+            // 
+            uPDATEToClipboardToolStripMenuItem.Name = "uPDATEToClipboardToolStripMenuItem";
+            uPDATEToClipboardToolStripMenuItem.Size = new Size(185, 22);
+            uPDATEToClipboardToolStripMenuItem.Text = "&UPDATE to Clipboard";
+            uPDATEToClipboardToolStripMenuItem.Click += uPDATEToClipboardToolStripMenuItem_Click;
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(850, 253);
-            this.Controls.Add(this.statusStrip1);
-            this.Controls.Add(this.listView1);
-            this.Controls.Add(this.btnPesquisar);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.txtDB);
-            this.Controls.Add(this.txtPass);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.txtUser);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.txtHost);
-            this.Controls.Add(this.label1);
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "Form1";
-            this.Text = "SQLDataFinder";
-            this.statusStrip1.ResumeLayout(false);
-            this.statusStrip1.PerformLayout();
-            this.ResumeLayout(false);
-            this.PerformLayout();
-
+            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(850, 253);
+            Controls.Add(statusStrip1);
+            Controls.Add(listView1);
+            Controls.Add(btnPesquisar);
+            Controls.Add(textBox1);
+            Controls.Add(label5);
+            Controls.Add(txtDB);
+            Controls.Add(txtPass);
+            Controls.Add(label4);
+            Controls.Add(txtUser);
+            Controls.Add(label3);
+            Controls.Add(label2);
+            Controls.Add(txtHost);
+            Controls.Add(label1);
+            Icon = (Icon)resources.GetObject("$this.Icon");
+            Name = "Form1";
+            Text = "SQLDataFinder";
+            context1.ResumeLayout(false);
+            statusStrip1.ResumeLayout(false);
+            statusStrip1.PerformLayout();
+            ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -257,5 +277,8 @@
         private ToolStripProgressBar toolStripProgressBar1;
         private ToolStripStatusLabel toolStripStatusLabel1;
         private ToolStripStatusLabel lblTable;
+        private ContextMenuStrip context1;
+        private ToolStripMenuItem tsSelect;
+        private ToolStripMenuItem uPDATEToClipboardToolStripMenuItem;
     }
 }

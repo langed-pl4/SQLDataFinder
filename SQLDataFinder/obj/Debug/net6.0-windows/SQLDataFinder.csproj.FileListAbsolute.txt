@@ -39,3 +39,4 @@ C:\Desenv\SQLDataFinder\SQLDataFinder\bin\Debug\net6.0-windows\runtimes\win-arm6
 C:\Desenv\SQLDataFinder\SQLDataFinder\bin\Debug\net6.0-windows\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.dll
 C:\Desenv\SQLDataFinder\SQLDataFinder\bin\Debug\net6.0-windows\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.dll
 C:\Desenv\SQLDataFinder\SQLDataFinder\bin\Debug\net6.0-windows\runtimes\win\lib\netstandard2.0\System.Runtime.Caching.dll
+C:\Desenv\SQLDataFinder\SQLDataFinder\obj\Debug\net6.0-windows\SQLDataFinder.sourcelink.json
